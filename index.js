@@ -1,7 +1,6 @@
 const Discord = require('discord.js');
 const api = require('./api/orbus-api');
 const RESPONSE_TYPES = require('./api/response-types');
-const auth = require('./auth.json');
 const whitelist = require('./whitelist.json');
 const getFormattedRoadmap = require('./roadmap').getFormattedRoadmap;
 
@@ -11,9 +10,11 @@ const COMMAND_KEY = '!';
 
 const TOP_REGEXP = new RegExp(`^${COMMAND_KEY}top (.+)`);
 
-const environment = process.env.ENVIRONMENT;
+const authToken = process.env.AUTH_TOKEN;
 
-client.login(auth[environment]);
+const environment = process.env.NODE_ENV;
+
+client.login(authToken);
 
 client.on('ready', () => {
   console.log('Logged in');
@@ -43,7 +44,7 @@ client.on('message', message => {
 
 function isWhitelisted(message) {
   const validRoleIds = whitelist.roles.map(role => role.id);
-  return environment === "staging" || message.member._roles.filter(role => validRoleIds.indexOf(role) !== -1).length > 0;
+  return environment !== "production" || message.member._roles.filter(role => validRoleIds.indexOf(role) !== -1).length > 0;
 }
 
 function generateLeaderBoard(leaders) {
