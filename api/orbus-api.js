@@ -10,7 +10,7 @@ const LEADERBOARD_URLS = Object.freeze({
   potions: `${LEADERBOARD_BASE_URL}potions_brewed`,
   kills: `${LEADERBOARD_BASE_URL}monsters_killed`,
   gathering: `${LEADERBOARD_BASE_URL}gathers`,
-  arena: `${LEADERBOARD_BASE_URL}arena_wins`
+  arena: `${LEADERBOARD_BASE_URL}arenas_won`
 });
 
 function getResponse(url) {

@@ -11,7 +11,6 @@ const COMMAND_KEY = '!';
 const TOP_REGEXP = new RegExp(`^${COMMAND_KEY}top (.+)`);
 
 const authToken = process.env.AUTH_TOKEN;
-
 const environment = process.env.NODE_ENV;
 
 client.login(authToken);
