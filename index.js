@@ -43,7 +43,7 @@ function sendUsageResponse(commandInfo) {
 }
 
 function parseInput(input) {
-  const commandRegexp = new RegExp(`^[${commandKey}](${Object.keys(commands).join('|')})(\\s.*)?$`);
+  const commandRegexp = new RegExp(`[${commandKey}](${Object.keys(commands).join('|')})(\\s.*)?$`);
   const parsedInput = commandRegexp.exec(input);
 
   if(isValidInput(parsedInput)) {
