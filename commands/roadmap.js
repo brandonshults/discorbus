@@ -1,3 +1,5 @@
+const { commandKey } = require('../config');
+
 const moment = require('moment-timezone');
 
 const dates =
@@ -37,5 +39,6 @@ ${formattedEntries.reduce((output, { date, duration, releaseNotes}, index) => {
 }
 
 module.exports = {
-  getFormattedRoadmap
+  usage: `${commandKey}roadmap)`,
+  fn: (args, message) => message.channel.send(getFormattedRoadmap())
 };

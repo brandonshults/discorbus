@@ -6,6 +6,7 @@
   "author": "Brandon Shults",
   "dependencies": {
     "discord.js": "11.3.0",
+    "glob": "^7.1.2",
     "moment-timezone": "^0.5.14",
     "node-fetch": "2.0.0"
   },

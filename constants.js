@@ -1,0 +1,5 @@
+module.exports = Object.freeze({
+  INVALID_COMMAND: Symbol('INVALID_COMMAND'),
+  WRONG_ARGUMENTS: Symbol('WRONG_ARGUMENTS'),
+  INVALID_RESPONSE: Symbol('INVALID_RESPONSE')
+});
