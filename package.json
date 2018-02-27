@@ -1,0 +1,19 @@
+{
+  "name": "discorbus",
+  "version": "0.0.1",
+  "description": "A discord interface for the Orbus VR API",
+  "main": "index.js",
+  "author": "Brandon Shults",
+  "dependencies": {
+    "discord.js": "11.3.0",
+    "moment-timezone": "^0.5.14",
+    "node-fetch": "2.0.0"
+  },
+  "engines": {
+    "node": "8.9.4",
+    "yarn": "1.3.2"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}
