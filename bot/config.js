@@ -23,7 +23,8 @@ module.exports = Object.freeze({
       {"name": "Airis", "id": 388737047940038656}
     ],
     "roles": [
-      {"name": "Noxian Extraordinaire", "id": "402162558200578048"}
+      {"name": "Noxian Extraordinaire", "id": "402162558200578048"},    // Nox Main Server
+      {"name": "Tester", "id": "418270718510366749"}                    // Discorbus Testing Server
     ]
   }
 });

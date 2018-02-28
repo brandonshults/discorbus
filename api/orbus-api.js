@@ -1,5 +1,5 @@
 const fetch = require('node-fetch');
-const { INVALID_RESPONSE } = require('../constants');
+const { INVALID_RESPONSE } = require('../bot/constants');
 
 const BASE_URL = 'https://api-game.orbusvr.com/public/';
 const LEADERBOARD_BASE_URL = `${BASE_URL}leaderboard/`;
@@ -22,7 +22,10 @@ function getLeaderBoard(board) {
   if(board in LEADERBOARD_URLS) {
     return getResponse(LEADERBOARD_URLS[board])
       .then(leaderboard => leaderboard.map(({name, record}) => ({name, record: parseInt(record, 10)})))
-      .catch(err => INVALID_RESPONSE);
+      .catch(err => {
+        console.log(err);
+        return INVALID_RESPONSE
+      });
   }
 
   return Promise.resolve(INVALID_RESPONSE)

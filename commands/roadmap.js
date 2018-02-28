@@ -1,4 +1,4 @@
-const { commandKey } = require('../config');
+const { commandKey } = require('../bot/config');
 
 const moment = require('moment-timezone');
 
