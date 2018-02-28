@@ -19,7 +19,7 @@ client.on('ready', () => {
 client.on('message', message => {
   const content = message.content;
 
-  if (!isWhitelisted(message)) {
+  if (!isWhitelisted(message) || isBotMessage(message)) {
     return;
   }
 
@@ -58,6 +58,8 @@ function parseInput(input) {
     }
   }
 }
+
+const isBotMessage = message => message.author.bot;
 
 function isWhitelisted(message) {
   const validRoleIds = whiteList.roles.map(role => role.id);
