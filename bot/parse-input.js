@@ -11,7 +11,7 @@ module.exports = function parseInput(input) {
   if(isValidInput(parsedInput)) {
     return {
       command: parsedInput[1],
-      args: parsedInput[2] !== undefined ? parsedInput[2].trim().split(' ') : undefined
+      args: parsedInput[2] !== undefined ? parsedInput[2].trim().split(' ') : []
     }
   } else {
     return {

@@ -29,11 +29,9 @@ module.exports = {
     if(args.length === 0) {
       inMoment = currentTime;
     } else if(args[0] === 'help') {
-      msg.channel.send(helpMessage + "\nAvailable Zones: ["+ availableZones +"]");
-      return;
+      return msg.channel.send(helpMessage + "\nAvailable Zones: ["+ availableZones +"]");
     } else if(args.length < 2) { // need at least 2 arguments. Ex: 9am, EST
-      msg.channel.send(genericErrorMessage);
-      return;
+      return msg.channel.send(genericErrorMessage);
     } else {
       
       args = args.map(a => a.toUpperCase());
@@ -52,7 +50,6 @@ module.exports = {
 
       if(!moment.isMoment(inMoment)) {
         msg.channel.send(genericErrorMessage);
-        return;
       }
 
       let zoneName = getZoneByAbbrev(inZone)
@@ -71,8 +68,7 @@ module.exports = {
 
         inMoment = zoneMoment;
       } else {
-        msg.channel.send("Sorry. That's not a valid timezone.");
-        return;
+        return msg.channel.send("Sorry. That's not a valid timezone.");
       }
       
     }
@@ -92,7 +88,6 @@ module.exports = {
     
     outMsg += "\n```";
     
-    msg.channel.send(outMsg);
-
+    return msg.channel.send(outMsg);
   },
 };

@@ -20,7 +20,7 @@ function generateLeaderBoard(leaders, boardname) {
 module.exports = Object.freeze({
   usage: `${commandKey}top (${getValidLeaderboards().join('|')})`,
   fn: function (commandArgs, message) {
-    if(commandArgs === undefined) {
+    if(commandArgs.length === 0) {
       return Promise.resolve(WRONG_ARGUMENTS);
     }
 
