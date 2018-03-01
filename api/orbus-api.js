@@ -13,6 +13,8 @@ const LEADERBOARD_URLS = Object.freeze({
   arena: `${LEADERBOARD_BASE_URL}arenas_won`
 });
 
+const SERVER_TIME_URL = 'https://api-game.orbusvr.com/servertime';
+
 function getResponse(url) {
   return fetch(url)
     .then(res => res.json());
@@ -31,7 +33,16 @@ function getLeaderBoard(board) {
   return Promise.resolve(INVALID_RESPONSE)
 }
 
+function getServerTime() {
+  return getResponse(SERVER_TIME_URL)
+    .catch(err => {
+      console.log(err);
+      return INVALID_RESPONSE
+    });
+}
+
 module.exports = {
   LEADERBOARD_URLS,
-  getLeaderBoard
+  getLeaderBoard,
+  getServerTime
 };
