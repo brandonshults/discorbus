@@ -15,29 +15,29 @@ const LEADERBOARD_URLS = Object.freeze({
 
 const SERVER_TIME_URL = 'https://api-game.orbusvr.com/servertime';
 
-function getResponse(url) {
+function getResponse (url) {
   return fetch(url)
     .then(res => res.json());
 }
 
-function getLeaderBoard(board) {
-  if(board in LEADERBOARD_URLS) {
+function getLeaderBoard (board) {
+  if (board in LEADERBOARD_URLS) {
     return getResponse(LEADERBOARD_URLS[board])
-      .then(leaderboard => leaderboard.map(({name, record}) => ({name, record: parseInt(record, 10)})))
+      .then(leaderboard => leaderboard.map(({ name, record }) => ({ name, record: parseInt(record, 10) })))
       .catch(err => {
         console.log(err);
-        return INVALID_RESPONSE
+        return INVALID_RESPONSE;
       });
   }
 
-  return Promise.resolve(INVALID_RESPONSE)
+  return Promise.resolve(INVALID_RESPONSE);
 }
 
-function getServerTime() {
+function getServerTime () {
   return getResponse(SERVER_TIME_URL)
     .catch(err => {
       console.log(err);
-      return INVALID_RESPONSE
+      return INVALID_RESPONSE;
     });
 }
 

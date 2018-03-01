@@ -4,7 +4,7 @@ module.exports.isGuildy = name => guildies.map(guildy => guildy.toLowerCase()).i
 
 module.exports.isBotMessage = message => message.author.bot;
 
-module.exports.addCommasToNumber = number => number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+module.exports.addCommasToNumber = number => number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
 module.exports.isWhiteListed = message => {
   const whiteListedRoleIds = whiteList.roles.map(role => role.id);

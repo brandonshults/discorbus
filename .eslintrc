@@ -1,8 +1,14 @@
 {
+  "extends": "standard",
+  "parserOptions": {
+    "ecmaVersion": 6
+  },
   "env": {
       "node": true
   },
   "rules": {
-    "no-case-declarations": "off"
+    "no-case-declarations": "off",
+    "semi": [2, "always"],
+    "no-multi-spaces": ["error", { "ignoreEOLComments": true }]
   }
 }
