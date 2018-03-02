@@ -20,6 +20,7 @@ module.exports = Object.freeze({
     'Geldan',
     'Invective',
     'Jarvis',
+    'Jerbear',
     'Kultar',
     'Landstander',
     'Lemf',
