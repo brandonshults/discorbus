@@ -13,13 +13,16 @@ const roadmap =
     [moment.tz('2018-05-28 12:00', 'America/Chicago'), 'Raid dungeons']
   ]);
 
-function formatDatesForOutput (dates, currentDate) {
+function formatDatesForOutput (dates, currentDate, isFuture) {
   const formattedEntries = dates.map(date => {
-    const days = Math.floor(moment.duration(date.diff(currentDate), 'milliseconds').asDays());
+    const timeUntil = moment.duration(date.diff(currentDate), 'milliseconds');
+    const days = timeUntil.days();
+    const hours = timeUntil.hours();
+    const minutes = timeUntil.minutes();
 
     return {
       date: date.format('MMM Do'),
-      duration: `(${days}d):`,
+      duration: `(${days < 1 ? `${hours}h${minutes}m` : `${days}d`}):`,
       releaseNotes: roadmap.get(date)
     };
   });
@@ -28,7 +31,7 @@ function formatDatesForOutput (dates, currentDate) {
   const longestDuration = formattedEntries.reduce((longest, { duration }) => duration.length > longest ? duration.length : longest, 0);
 
   return formattedEntries.reduce((output, { date, duration, releaseNotes }, index) => {
-    return output + `${index > 0 ? '\n' : ''}[${date.padEnd(longestDate, ' ')}]${duration.padEnd(longestDuration, ' ')} ${releaseNotes}`;
+    return output + `${index > 0 ? '\n' : ''}[${date.padEnd(longestDate, ' ')}]${(isFuture ? duration.padEnd(longestDuration, ' ') : '')} ${releaseNotes}`;
   }, '');
 }
 
@@ -44,9 +47,9 @@ function getFormattedRoadmap () {
     .slice(0, 3);
 
   return `\`\`\`md
-${futureDates.length > 0 ? 'Upcoming:\n' + formatDatesForOutput(futureDates, currentDate) : ''}
+${futureDates.length > 0 ? 'Upcoming:\n' + formatDatesForOutput(futureDates, currentDate, true) : ''}
 
-${pastDates.length > 0 ? 'Past:\n' + formatDatesForOutput(pastDates, currentDate) : ''}\`\`\``;
+${pastDates.length > 0 ? 'Past:\n' + formatDatesForOutput(pastDates, currentDate, false) : ''}\`\`\``;
 }
 
 module.exports = {
