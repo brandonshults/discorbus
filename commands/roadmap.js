@@ -16,7 +16,7 @@ const roadmap =
 function formatDatesForOutput (dates, currentDate, isFuture) {
   const formattedEntries = dates.map(date => {
     const timeUntil = moment.duration(date.diff(currentDate), 'milliseconds');
-    const days = timeUntil.days();
+    const days = Math.floor(moment.duration(date.diff(currentDate), 'milliseconds').asDays());
     const hours = timeUntil.hours();
     const minutes = timeUntil.minutes();
 
