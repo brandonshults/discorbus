@@ -1,0 +1,36 @@
+{
+  "primary": {
+    "bee": "https://i.imgur.com/QUtWeU2.png",
+    "brick": "https://i.imgur.com/WLEVE2l.png",
+    "brown sugar": "https://i.imgur.com/OnlsIUh.png",
+    "charcoal": "https://i.imgur.com/HTJY9B9.png",
+    "cream": "https://i.imgur.com/ySA71PE.png",
+    "crimson": "https://i.imgur.com/MbbbcfI.png",
+    "dram": "https://i.imgur.com/xCElLXo.png",
+    "emerald": "https://i.imgur.com/m8y2C12.png",
+    "forest": "https://i.imgur.com/S4yjRo9.png",
+    "lavender": "https://i.imgur.com/SxHrdU9.png",
+    "lime": "https://i.imgur.com/wTOfSl5.png",
+    "navy": "https://i.imgur.com/9HKEZQX.png",
+    "perrywinkle": "https://i.imgur.com/7u0bFbU.png",
+    "pumpkin": "https://i.imgur.com/2nOZc3v.png",
+    "seafoam": "https://i.imgur.com/ihFGjIf.png",
+    "shadow": "https://i.imgur.com/sEu9pEG.png",
+    "taffey": "https://i.imgur.com/buPYdtb.png",
+    "taupe": "https://i.imgur.com/0qaN6mD.png",
+    "terracotta": "https://i.imgur.com/jt0t8vR.png",
+    "toffee": "https://i.imgur.com/Lccs7b3.png"
+  },
+  "accent": {
+    "cobalt": "https://i.imgur.com/lEAJymu.png",
+    "crimson": "https://i.imgur.com/wvPqqMa.png",
+    "dandelion": "https://i.imgur.com/nxoVsAt.png",
+    "magic purple": "https://i.imgur.com/4kw0sqb.png",
+    "orange": "https://i.imgur.com/FJziICx.png",
+    "powder blue": "https://i.imgur.com/b7UdEMg.png",
+    "salmon": "https://i.imgur.com/v3NoGrm.png",
+    "saltwater taffee": "https://i.imgur.com/xlJLKjm.png",
+    "teal": "https://i.imgur.com/skdgfvf.png",
+    "toxic waste": "https://i.imgur.com/XnCUoFt.png"
+  }
+}
