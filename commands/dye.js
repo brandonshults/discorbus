@@ -6,8 +6,8 @@ const allDyes = Object.assign({}, dyes.primary, dyes.accent);
 
 module.exports = Object.freeze({
   usage: `${commandKey}dye (color)
-  Primary Dyes: ${Object.keys(dyes.primary).join(', ')}
-  Accent Dyes: ${Object.keys(dyes.accent).join(', ')}
+**Primary Dyes**: ${Object.keys(dyes.primary).join(', ')}
+**Accent Dyes**: ${Object.keys(dyes.accent).join(', ')}
   `,
   fn: function (commandArgs, message) {
     const color = commandArgs.join(' ').toLowerCase();
