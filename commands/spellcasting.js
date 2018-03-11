@@ -15,6 +15,11 @@ module.exports = Object.freeze({
 **Known spells**: ${knownSpells.join(', ')}
 **Known mages**: ${knownMages.join(', ')}`,
   fn: function (commandArgs, message) {
+    // A hacky way to lock this command down to a couple of channels.
+    if (message.channel.name !== 'runemage' && message.channel.name !== 'testing') {
+      return Promise.resolve();
+    }
+
     if (commandArgs.length === 0) {
       return Promise.resolve(WRONG_ARGUMENTS);
     }
