@@ -16,7 +16,7 @@ module.exports = Object.freeze({
 **Known mages**: ${knownMages.join(', ')}`,
   fn: function (commandArgs, message) {
     // A hacky way to lock this command down to a couple of channels.
-    if (message.channel.name !== 'runemage' && message.channel.name !== 'testing') {
+    if (message.channel.name !== 'runemage' && message.channel.name !== 'events_control' && message.channel.name !== 'testing') {
       return Promise.resolve();
     }
 
