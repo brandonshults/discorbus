@@ -11,7 +11,7 @@ const knownMages = Object.keys(Object.values(spellcasting).reduce((mages, spell)
 const knownSpells = Object.keys(spellcasting);
 
 module.exports = Object.freeze({
-  usage: `${commandKey}spellcasting (spell) or ${commandKey}spellcasting (mage) (spell)
+  usage: `${commandKey}spellcasting (spell), ${commandKey}spellcasting (mage), or ${commandKey}spellcasting (mage) (spell)
 **Known spells**: ${knownSpells.join(', ')}
 **Known mages**: ${knownMages.join(', ')}`,
   fn: function (commandArgs, message) {
@@ -35,8 +35,12 @@ module.exports = Object.freeze({
 
     if (mage && spell in spellcasting) {
       gifs.push(spellcasting[spell][mage]);
+    } else if (mage) {
+      gifs = Object.values(spellcasting)
+        .map(spell => mage in spell ? spell[mage] : null)
+        .filter(gif => gif !== null);
     } else if (spell in spellcasting) {
-      gifs = gifs.concat(Object.values(spellcasting[spell]));
+      gifs = Object.values(spellcasting[spell]);
     }
 
     if (gifs.length > 0) {
