@@ -1,49 +1,67 @@
 {
-  "fireball" : {
+  "affliction": {
+    "Snoopy": "https://gfycat.com/GiantSelfassuredBigmouthbass"
+  },
+  "affliction 2": {
+    "Jerbear": "https://cdn.discordapp.com/attachments/402160067106963467/422358774901243914/Affliction_2.gif",
+    "Snoopy": "https://gfycat.com/CheerfulDefiantDachshund"
+  },
+  "arcane blast": {
+    "Alu": "https://gfycat.com/GleefulUnkemptAnemone",
+    "Jerbear": "https://cdn.discordapp.com/attachments/402160067106963467/422356941919092756/Arcane_Blast.gif",
+    "Snoopy": "https://gfycat.com/ThisNiftyEasteuropeanshepherd"
+  },
+  "arcane ray": {
+    "Snoopy": "https://gfycat.com/AshamedUnsteadyBinturong"
+  },
+  "decurse": {
+    "Jerbear": "https://cdn.discordapp.com/attachments/402160067106963467/422364268604817408/Decurse.gif"
+  },
+  "fireball": {
     "Snoopy": "https://gfycat.com/SelfreliantEqualCockerspaniel"
   },
   "fireball 2": {
-    "Snoopy": "https://gfycat.com/CornyExemplaryFishingcat",
-    "Alu": "https://gfycat.com/AdventurousUglyAfricanbushviper"
-
+    "Alu": "https://gfycat.com/AdventurousUglyAfricanbushviper",
+    "Snoopy": "https://gfycat.com/CornyExemplaryFishingcat"
   },
   "fireball 3": {
-    "Snoopy": "https://gfycat.com/IndelibleChubbyGreyhounddog",
-    "Jerbear": "https://cdn.discordapp.com/attachments/402160067106963467/422309338690879489/Fireball_2_shortcut.gif"
+    "Jerbear": "https://cdn.discordapp.com/attachments/402160067106963467/422309338690879489/Fireball_2_shortcut.gif",
+    "Snoopy": "https://gfycat.com/IndelibleChubbyGreyhounddog"
+  },
+  "fireworks": {
+    "Jerbear": "https://cdn.discordapp.com/attachments/402160067106963467/422352570242039808/Fireworks_Gif.gif"
   },
   "frostbolt": {
     "Snoopy": "https://gfycat.com/HastyRegalGoldenretriever"
   },
   "frostbolt 2": {
-    "Snoopy": "https://gfycat.com/PowerfulBewitchedDobermanpinscher",
     "Alu": "https://gfycat.com/ImpoliteTheseBobolink",
-    "Invective": "https://giphy.com/gifs/23lAB4cJ8kIqJnHE61"
+    "Invective": "https://giphy.com/gifs/23lAB4cJ8kIqJnHE61",
+    "Snoopy": "https://gfycat.com/PowerfulBewitchedDobermanpinscher"
   },
   "frostbolt 3": {
-    "Snoopy": "https://gfycat.com/RequiredVastGrayling",
     "Alu": "https://gfycat.com/PinkTanKitten",
-    "Invective": "https://giphy.com/gifs/ORDVKnRLENzCEKsLKc"
+    "Invective": "https://giphy.com/gifs/ORDVKnRLENzCEKsLKc",
+    "Snoopy": "https://gfycat.com/RequiredVastGrayling"
   },
-  "affliction": {
-    "Snoopy": "https://gfycat.com/GiantSelfassuredBigmouthbass"
+  "ice lance": {
+    "Jerbear": "https://cdn.discordapp.com/attachments/402160067106963467/422350610332123146/Ice_Lance_Slowmo_Gif.gif"
   },
-  "affliction 2": {
-    "Snoopy": "https://gfycat.com/CheerfulDefiantDachshund"
+  "light": {
+    "Jerbear": "https://cdn.discordapp.com/attachments/402160067106963467/422361626272858112/Light.gif"
   },
-  "arcane ray": {
-    "Snoopy": "https://gfycat.com/AshamedUnsteadyBinturong"
+  "mana shield": {
+    "Alu": "https://gfycat.com/ForthrightFrightenedBasenji",
+    "Jerbear": "https://cdn.discordapp.com/attachments/402160067106963467/422365363246989312/Mana_Shield.gif"
   },
-  "arcane explosion": {
-    "Snoopy": "https://gfycat.com/ThisNiftyEasteuropeanshepherd",
-    "Alu": "https://gfycat.com/GleefulUnkemptAnemone"
+  "polymorph": {
+    "Jerbear": "https://cdn.discordapp.com/attachments/402160067106963467/422362833645469701/Polymorph.gif"
   },
   "pushback": {
+    "Jerbear": "https://cdn.discordapp.com/attachments/402160067106963467/422355462609043460/Pushback.gif",
     "Snoopy": "https://gfycat.com/ThisNiftyEasteuropeanshepherd"
   },
   "pushback 2": {
     "Jerbear": "https://cdn.discordapp.com/attachments/402160067106963467/422306248898248704/Pushback_2_gif.gif"
-  },
-  "mana shield": {
-    "Alu": "https://gfycat.com/ForthrightFrightenedBasenji"
   }
 }

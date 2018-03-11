@@ -1,3 +1,4 @@
+const shuffle = require('lodash.shuffle');
 const { commandKey } = require('../bot/config');
 const { WRONG_ARGUMENTS } = require('../bot/constants');
 const spellcasting = require('../spellcasting/spellcasting.json');
@@ -6,9 +7,9 @@ const knownMages = Object.keys(Object.values(spellcasting).reduce((mages, spell)
   return Object.assign({}, mages, Object.keys(spell).reduce((magesForSpell, mage) => {
     return Object.assign({}, magesForSpell, {[mage]: true});
   }, {}));
-}, {}));
+}, {})).sort();
 
-const knownSpells = Object.keys(spellcasting);
+const knownSpells = Object.keys(spellcasting).sort();
 
 module.exports = Object.freeze({
   usage: `${commandKey}spellcasting (spell), ${commandKey}spellcasting (mage), or ${commandKey}spellcasting (mage) (spell)
@@ -31,20 +32,27 @@ module.exports = Object.freeze({
       spell = commandArgs.slice(1).join(' ');
     }
 
-    let gifs = [];
+    let spells = [];
 
     if (mage && spell in spellcasting) {
-      gifs.push(spellcasting[spell][mage]);
+      spells.push({ mage, spell: spellcasting[spell][mage] });
     } else if (mage) {
-      gifs = Object.values(spellcasting)
-        .map(spell => mage in spell ? spell[mage] : null)
-        .filter(gif => gif !== null);
+      spells = Object.keys(spellcasting)
+        .map(spell => ({ mage, spell: (mage in spellcasting[spell] ? spell : null) }))
+        .filter(({ spell }) => spell !== null);
     } else if (spell in spellcasting) {
-      gifs = Object.values(spellcasting[spell]);
+      spells = Object.keys(spellcasting[spell]).map(mage => ({ mage, spell }));
     }
 
-    if (gifs.length > 0) {
-      return message.channel.send(gifs.join('\n'));
+    if (spells.length > 0) {
+      let isPruned = false;
+      if (spells.length > 3) {
+        spells = shuffle(spells).slice(0, 3);
+        isPruned = true;
+      }
+
+      return message.channel.send(spells.map(({ spell, mage }) => `${mage} ${spell}:\n${spellcasting[spell][mage]}`).join('\n\n'))
+        .then(() => isPruned ? message.channel.send('Results randomized and limited to 3.') : Promise.resolve());
     } else {
       return Promise.resolve(WRONG_ARGUMENTS);
     }

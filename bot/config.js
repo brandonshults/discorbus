@@ -25,7 +25,6 @@ module.exports = Object.freeze({
     'Landstander',
     'Lemf',
     'Rejinx',
-    'Snoopy',
-    'Xatilar'
+    'Snoopy'
   ]
 });
