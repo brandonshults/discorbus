@@ -14,6 +14,9 @@ const LEADERBOARD_URLS = Object.freeze({
 });
 
 const SERVER_TIME_URL = 'https://api-game.orbusvr.com/servertime';
+const CHARACTER_URL = 'https://api-game.orbusvr.com/public/characters';
+
+const TWO_HOURS = 2 * 60 * 60 * 1000;
 
 function getResponse (url) {
   return fetch(url)
@@ -41,8 +44,33 @@ function getServerTime () {
     });
 }
 
+const characterCache = {};
+function getCharacterInfo (name, options = { cacheLength: TWO_HOURS }) {
+  if (name in characterCache) {
+    const character = characterCache[name];
+    if (new Date().getTime() - character.lastUpdateTime < options.cacheLength) {
+      return Promise.resolve(character.apiResponse);
+    }
+  }
+
+  return getResponse(`${CHARACTER_URL}/${name}`)
+    .then(apiResponse => {
+      if (apiResponse.status !== 'success') {
+        return INVALID_RESPONSE;
+      }
+
+      characterCache[name] = {
+        lastUpdateTime: new Date().getTime(),
+        apiResponse
+      };
+
+      return apiResponse;
+    });
+}
+
 module.exports = {
   LEADERBOARD_URLS,
   getLeaderBoard,
-  getServerTime
+  getServerTime,
+  getCharacterInfo
 };
