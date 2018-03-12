@@ -12,6 +12,7 @@ module.exports = Object.freeze({
     'Alu',
     'Asterisk',
     'Baalzamon',
+    'buddy',
     'carly',
     'Cowboy',
     'Daeresha',
@@ -24,6 +25,8 @@ module.exports = Object.freeze({
     'Kultar',
     'Landstander',
     'Lemf',
+    'livetovive',
+    'Raygar',
     'Rejinx',
     'Snoopy'
   ]
