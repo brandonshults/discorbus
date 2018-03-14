@@ -1,5 +1,6 @@
 const api = require('../api/orbus-api');
-const { isGuildy, addCommasToNumber } = require('../utils/bag-o-fun');
+const { addCommasToNumber } = require('../utils/bag-o-fun');
+const { isGuildy } = require('../api/orbus-api');
 
 const { commandKey } = require('../bot/config');
 const { WRONG_ARGUMENTS, INVALID_RESPONSE } = require('../bot/constants');
@@ -12,7 +13,7 @@ function generateLeaderBoard (leaders, boardname) {
     return currentLength > most ? currentLength : most;
   }, 0);
   const leaderboard = leaders.reduce((stringBuilder, leader) =>
-    stringBuilder + (isGuildy(leader.name) ? '+' : ' ') + `${leader.name.padEnd(longestName + 2)}${addCommasToNumber(leader.record)}\n`
+    stringBuilder + (leader.isGuildy ? '+' : ' ') + `${leader.name.padEnd(longestName + 2)}${addCommasToNumber(leader.record)}\n`
     , '');
   return `Results for: ${commandKey}top ${boardname}\n\`\`\`diff\n${leaderboard}\`\`\``;
 }
@@ -27,7 +28,10 @@ module.exports = Object.freeze({
     const leaderboard = commandArgs[0];
     if (getValidLeaderboards().indexOf(leaderboard) > -1) {
       return api.getLeaderBoard(leaderboard)
-        .then(response => message.channel.send(generateLeaderBoard(response, leaderboard)))
+        .then(response => Promise.all(
+          response.map(entry => isGuildy(entry.name)
+            .then(isGuildy => Object.assign({}, entry, { isGuildy }))))
+          .then(entries => message.channel.send(generateLeaderBoard(entries, leaderboard))))
         .catch(err => {
           console.log(err);
           return INVALID_RESPONSE;

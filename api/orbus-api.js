@@ -68,9 +68,20 @@ function getCharacterInfo (name, options = { cacheLength: TWO_HOURS }) {
     });
 }
 
+function isGuildy (name) {
+  return getCharacterInfo(name)
+    .then(apiResponse => {
+      if (apiResponse === INVALID_RESPONSE) {
+        return false;
+      }
+      return apiResponse.fellowshipName === 'Nox' || apiResponse.characterName === 'Snoopy'; // Snoopy is broken.
+    });
+}
+
 module.exports = {
   LEADERBOARD_URLS,
   getLeaderBoard,
   getServerTime,
-  getCharacterInfo
+  getCharacterInfo,
+  isGuildy
 };
