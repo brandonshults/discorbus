@@ -74,7 +74,9 @@ function isGuildy (name) {
       if (apiResponse === INVALID_RESPONSE) {
         return false;
       }
-      return apiResponse.fellowshipName === 'Nox' || apiResponse.characterName === 'Snoopy'; // Snoopy is broken.
+      return apiResponse.fellowshipName === 'Nox' ||
+        apiResponse.characterName === 'Snoopy' ||      // Snoopy is broken.
+        apiResponse.characterName === 'Jerbear';       // So is Jerbear.
     });
 }
 
