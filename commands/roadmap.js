@@ -7,7 +7,7 @@ const roadmap =
     [moment.tz('2018-03-05 12:00', 'America/Chicago'), 'Dye! Warrior hit detection, improved tutorial, kill quests'],
     [moment.tz('2018-03-19 12:00', 'America/Chicago'), 'New talent system, VoIP rework, journal tabs, fishing gear'],
     [moment.tz('2018-03-30 12:00', 'America/Chicago'), 'Shard dungeons'],
-    [moment.tz('2018-04-11 12:00', 'America/Chicago'), 'Pet overhaul'],
+    [moment.tz('2018-04-16 12:00', 'America/Chicago'), 'Gear re-rolling, shard gear remodel, beginning of new sound design, portal system overhaul, pet overhaul'],
     [moment.tz('2018-04-23 12:00', 'America/Chicago'), 'New world boss, tournament of mages, fishing updates'],
     [moment.tz('2018-05-07 12:00', 'America/Chicago'), 'Act 3, new PvP mechanics'],
     [moment.tz('2018-05-28 12:00', 'America/Chicago'), 'Raid dungeons']
