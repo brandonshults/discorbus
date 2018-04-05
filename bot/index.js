@@ -37,7 +37,10 @@ client.on('message', message => {
           message.channel.send('The Orbus public API failed to provide a recognized response.  Sorry.');
         }
       })
-      .catch(() => message.channel.send('Oops.  Something went wrong.'));
+      .catch(err => {
+        console.log(err);
+        message.channel.send('Oops.  Something went wrong.')
+      });
   } else if (content[0] === commandKey) {
     message.channel.send('Unknown command.');
   }
