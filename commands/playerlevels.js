@@ -64,6 +64,8 @@ function getProcessedStats (response) {
         return Object.assign({}, stats, {'Monsters Killed': addCommasToNumber(parseInt(stat.record, 10))});
       case 'gathers':
         return Object.assign({}, stats, {'Resources Gathered': addCommasToNumber(parseInt(stat.record, 10))});
+      case 'arenas_won':
+        return Object.assign({}, stats, {'Arena Wins': addCommasToNumber(parseInt(stat.record, 10))});
       default:
         return Object.assign({}, stats);
     }

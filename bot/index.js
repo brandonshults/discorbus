@@ -39,7 +39,7 @@ client.on('message', message => {
       })
       .catch(err => {
         console.log(err);
-        message.channel.send('Oops.  Something went wrong.')
+        message.channel.send('Oops.  Something went wrong.');
       });
   } else if (content[0] === commandKey) {
     message.channel.send('Unknown command.');
