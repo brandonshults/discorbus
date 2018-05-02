@@ -11,8 +11,8 @@ const roadmap =
     [moment.tz('2018-04-23 12:00', 'America/Chicago'), 'Fishing Quests, rare fish'],
     [moment.tz('2018-04-27 12:00', 'America/Chicago'), 'New world boss'],
     [moment.tz('2018-04-28 12:00', 'America/Chicago'), 'Tournament of Mages'],
-    [moment.tz('2018-05-07 12:00', 'America/Chicago'), 'Act 3, new PvP mechanics'],
-    [moment.tz('2018-05-28 12:00', 'America/Chicago'), 'Raid dungeons']
+    [moment.tz('2018-05-14 12:00', 'America/Chicago'), 'Act 3, new PvP mechanics'],
+    [moment.tz('2018-06-01 12:00', 'America/Chicago'), 'Raid dungeons']
   ]);
 
 function formatDatesForOutput (dates, currentDate, isFuture) {
