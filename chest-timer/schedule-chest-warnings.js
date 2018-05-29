@@ -24,7 +24,7 @@ module.exports = function scheduleChestWarnings (client) {
     }
   });
 
-  nodeSchedule.rescheduleJob(nextChest + (MS_IN_A_MINUTE), () => scheduleChestWarnings(client));
+  nodeSchedule.scheduleJob(nextChest + (MS_IN_A_MINUTE), () => scheduleChestWarnings(client));
 };
 
 function getTricksterChannel (client) {
