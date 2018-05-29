@@ -2,6 +2,8 @@ const Discord = require('discord.js');
 const parseInput = require('./parse-input');
 const { isWhiteListed, isBotMessage } = require('../utils/bag-o-fun');
 const commands = require('../commands');
+const scheduleChestWarnings = require('../chest-timer/schedule-chest-warnings');
+const { MS_IN_A_MINUTE } = require('../chest-timer/next-chest-time');
 
 const { INVALID_COMMAND, WRONG_ARGUMENTS, INVALID_RESPONSE } = require('./constants');
 const { commandKey } = require('./config');
@@ -17,6 +19,8 @@ client.login(authToken).catch(err => {
 
 client.on('ready', () => {
   console.log('Logged in');
+  scheduleChestWarnings(client);
+  keepAlive(0);
 });
 
 client.on('message', message => {
@@ -45,3 +49,8 @@ client.on('message', message => {
     message.channel.send('Unknown command.');
   }
 });
+
+function keepAlive (param) {
+  const test = param + 0;
+  setTimeout(() => keepAlive(test), MS_IN_A_MINUTE * 0.99);
+}
