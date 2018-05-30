@@ -8,19 +8,8 @@ module.exports = Object.freeze({
       { name: 'ARCer', id: '415691466451451914' }                      // ARC
     ]
   },
-  guildies: [
-    'Fern',
-    'Geldan',
-    'Daeresha',
-    'Invective',
-    'Landstander',
-    'lemf',
-    'Snoopy',
-    'Invective',
-    'Airis',
-    'Midnight',
-    'Jerbear',
-    'Mahkaio',
-    'Fireblood'
-  ]
+  // How often the Trickster chest spawns, in hours
+  tricksterChestRespawnRate: 10,
+  // Alert times (in minutes) before the trickster chest spawns
+  tricksterChestAlertTimes: [ 60, 30, 10, 1 ]
 });

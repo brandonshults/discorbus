@@ -8,7 +8,7 @@ module.exports = Object.freeze({
     if ([DISCORBUS_TESTING_GUILD_ID, ARC_GUILD_ID].indexOf(message.channel.guild.id) === -1) {
       return Promise.resolve();
     }
-    console.log(formattedTimeUntil());
+
     return message.channel.send(`Next chest at: ${formattedTimeUntil()}`);
   }
 });

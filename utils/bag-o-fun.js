@@ -1,6 +1,4 @@
-const { whiteList, guildies } = require('../bot/config');
-
-module.exports.isGuildy = name => guildies.map(guildy => guildy.toLowerCase()).indexOf(name.toLowerCase()) > -1;
+const { whiteList } = require('../bot/config');
 
 module.exports.isBotMessage = message => message.author.bot;
 

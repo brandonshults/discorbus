@@ -2,27 +2,24 @@ const nodeSchedule = require('node-schedule');
 const moment = require('moment-timezone');
 
 const formattedTimeUntil = require('./formatted-time-until');
-const { nextChestTime, MS_IN_A_MINUTE, MS_IN_AN_HOUR } = require('./next-chest-time');
+const { nextChestTime, MS_IN_A_MINUTE } = require('./next-chest-time');
 const { TESTING_CHANNEL_ID, TRICKSTER_CHEST_CHANNEL_ID, TRICK_TAKER_ROLE_ID, TESTING_ROLE_ID, DISCORBUS_TESTING_GUILD_ID, ARC_GUILD_ID } = require('../bot/constants');
+const { tricksterChestAlertTimes } = require('../bot/config');
 
 module.exports = function scheduleChestWarnings (client) {
   const tricksterRoleId = getTricksterRoleId(client);
   const broadcastChannel = getTricksterChannel(client);
   const nextChest = nextChestTime();
-  const oneHourBefore = nextChest - MS_IN_AN_HOUR;
-  const thirtyMinutesBefore = nextChest - (MS_IN_A_MINUTE * 30);
-  const tenMinutesBefore = nextChest - (MS_IN_A_MINUTE * 10);
-  const oneMinuteBefore = nextChest - MS_IN_A_MINUTE;
-  // const testTime = nextChest - (MS_IN_AN_HOUR * 7) - (MS_IN_A_MINUTE * 22);
 
-  const warningTimes = [ oneHourBefore, thirtyMinutesBefore, tenMinutesBefore, oneMinuteBefore ];
-  warningTimes.forEach(date => {
-    if (new Date().getTime() < date) {
-      nodeSchedule.scheduleJob(date, () => {
-        broadcastChannel.send(`${tricksterRoleId ? `<@&${tricksterRoleId}> ` : ''}Next trickster chest in ${getFormattedTimeDifference(date)}`);
-      });
-    }
-  });
+  tricksterChestAlertTimes
+    .map(time => nextChest - (time * MS_IN_A_MINUTE))
+    .forEach(date => {
+      if (new Date().getTime() < date) {
+        nodeSchedule.scheduleJob(date, () => {
+          broadcastChannel.send(`${tricksterRoleId ? `<@&${tricksterRoleId}> ` : ''}Next trickster chest in ${getFormattedTimeDifference(date)}`);
+        });
+      }
+    });
 
   nodeSchedule.scheduleJob(nextChest + (MS_IN_A_MINUTE), () => scheduleChestWarnings(client));
 };
